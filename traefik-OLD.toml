@@ -1,0 +1,9 @@
+[docker]
+  endpoint = "unix:///var/run/docker.sock"
+  domain = "lg.localhost"
+  watch = true
+  exposedbydefault = false
+
+[providers]
+  [providers.file]
+    directory = "/traefik-dynamic.toml"

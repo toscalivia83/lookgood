@@ -1,0 +1,42 @@
+version: "3"
+services:
+    client:
+        container_name: lgui-client
+        build:
+            context: ./client
+            dockerfile: Dockerfile
+        image: toscalivia83/lgui-client
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./client/src/:/usr/src/app/src/
+            - ./client:/usr/src/app
+        labels:
+            - "traefik.http.routers.client.entrypoints=web"
+            - "traefik.enable=true"
+        stdin_open: true
+        tty: true
+    reverse-proxy:
+        image: traefik:v2.2
+        command:
+            - --entrypoints.web.address=:80
+            - --providers.docker=true
+            - --api.insecure #dont do that in production !
+        ports:
+            - "80:80"
+            - "8080:8080"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+    server:
+        container_name: lgui-server
+        build:
+            context: ./server
+            dockerfile: Dockerfile
+        image: toscalivia83/lgui-server
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./server/src/:/usr/src/app/src/
+            - ./server:/usr/src/app
+        stdin_open: true
+        tty: true

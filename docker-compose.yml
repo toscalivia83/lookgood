@@ -1,0 +1,91 @@
+version: "3"
+services:
+    nginx:
+        restart: always
+        build:
+            context: ./client
+        volumes: 
+            - "./client/:/usr/share/nginx/html/"
+            - "./client/src/:/usr/src/app/src/"
+        ports:
+            - "80:80"
+        depends_on: 
+            - server
+
+    # client:
+    #     container_name: lgui-client
+    #     build:
+    #         context: ./client
+    #         dockerfile: Dockerfile
+    #     image: toscalivia83/lgui-client
+    #     ports:
+    #         - "3000:3000"
+    #     volumes:
+    #         - ./client/src/:/usr/src/app/src/
+    #         - ./client:/usr/src/app
+    #     stdin_open: true
+    #     tty: true
+    
+    server:
+        container_name: lgui-server
+        build:
+            context: ./server
+            dockerfile: Dockerfile
+        image: toscalivia83/lgui-server
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./server/src/:/usr/src/app/src/
+            - ./server:/usr/src/app
+        links: 
+          - mongo
+        stdin_open: true
+        tty: true
+
+    mongo:
+      image: "mongo"
+      container_name: "my_mongo_db"
+      environment: 
+        - MONGO_INITDB_DATABASE
+      ports:
+        - "27017:27017"
+
+
+
+
+# version: "3.3"
+
+# services:
+
+#   traefik:
+#     image: "traefik:v2.2"
+#     container_name: "traefik"
+#     command:
+#       - "--log.level=DEBUG"
+#       - "--api.insecure=true"
+#       - "--providers.docker=true"
+#       - "--providers.docker.exposedbydefault=false"
+#       - "--entrypoints.web.address=:80"
+#     ports:
+#       - "80:80"
+#       - "8080:8080"
+#     volumes:
+#       - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+#   client:
+#     image: "lgui-client"
+#     container_name: "client"
+#     build:
+#       context: "./client"
+#       dockerfile: "Dockerfile"
+#     volumes:
+#       - ./client/src/:/usr/src/app/src/
+#       - ./client:/usr/src/app
+#     labels:
+#       - "traefik.enable=true"
+#       - "traefik.http.routers.client.rule=Host(`client.localhost`)"
+#       - "traefik.http.routers.client.entrypoints=web"
+#       - "traefik.port=80"
+#       - "traefik.default.protocol=http"
+#     stdin_open: true
+#     tty: true

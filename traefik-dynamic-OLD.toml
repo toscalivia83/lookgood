@@ -1,0 +1,14 @@
+# http routing section
+[http]
+  [http.routers]
+     # Define a connection between requests and services
+     [http.routers.client]
+      rule = "Host(`client-lookgood-ui-wtihout-parcel`) && PathPrefix(`/api-test/`)"
+      # If the rule matches, forward to the service (declared below)
+      service = "lg-server"
+
+  [http.services]
+    # Define how to reach an existing service on our infrastructure
+    [http.services.lg-server.loadBalancer]
+      [[http.services.lg-server.loadBalancer.servers]]
+        url = "http://192.168.208.2:5000"
