@@ -1,0 +1,53 @@
+{
+  "name": "lookgood-app-server",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "globby": "^11.0.0",
+    "http": "0.0.1-security",
+    "https": "^1.0.0",
+    "jsonfile": "^6.0.1",
+    "mocha": "^7.1.2",
+    "mongodb": "^3.5.7",
+    "mongoose": "^5.9.11",
+    "path": "^0.12.7",
+    "verror": "^1.10.0",
+    "winston": "^3.2.1"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development node ./src/app.js --listen 5000 --no-clipboard records",
+    "lint": "eslint ./src",
+    "test": "APP_CONFIG=tests mocha ./src/tests/*.test.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "jest": "^26.0.1",
+    "supertest": "^4.0.2"
+  }
+}
