@@ -1,0 +1,37 @@
+@value lg-yellow from "../../../assets/variables.css";
+@value lg-light-red-grey from "../../../assets/variables.css";
+@value medium-font from "../../../assets/variables.css";
+@value standard-font from "../../../assets/variables.css";
+@value small-font from "../../../assets/variables.css";
+
+.container {
+  border-radius: 35px;
+  padding: 16px 10px 16px 16px;
+  background-color: lg-yellow;
+}
+
+.heading {
+  font-size: medium-font;
+  font-weight: bold;
+  font-family: Quicksand;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.content {
+  border-radius: 25px;
+  background-color: lg-light-red-grey;
+  font-weight: 500;
+  padding: 16px 16px 62px 16px;
+}
+
+.content > .contentTitle {
+  font-size: standard-font;
+}
+
+.content > .contentTitle {
+  font-size: small-font;
+}

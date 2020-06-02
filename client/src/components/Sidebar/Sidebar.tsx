@@ -1,6 +1,6 @@
 import React from "react";
 
-const Sidebard = (): React.ReactElement => {
+const Sidebar = (): React.ReactElement => {
   return (
     <div>
       <div>
@@ -20,4 +20,4 @@ const Sidebard = (): React.ReactElement => {
   );
 };
 
-export default Sidebard;
+export default Sidebar;

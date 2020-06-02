@@ -1,0 +1,49 @@
+@value lg-yellow from "../../../assets/variables.css";
+@value lg-pink from "../../../assets/variables.css";
+@value medium-font from "../../../assets/variables.css";
+@value standard-font from "../../../assets/variables.css";
+@value small-font from "../../../assets/variables.css";
+
+.container {
+  border-radius: 35px;
+  padding: 16px 10px 16px 16px;
+  margin: 0 20px;
+}
+
+.yellow {
+  background-color: lg-yellow;
+}
+
+.pink {
+  background-color: lg-pink;
+}
+
+.heading {
+  font-size: medium-font;
+  font-weight: bold;
+  font-family: Quicksand;
+}
+
+.image {
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 64px;
+  width: auto;
+  display: block;
+  margin: 20px auto 15px auto;
+}
+
+.contentTitle {
+  font-size: standard-font;
+  font-weight: 500;
+}
+
+.contentText {
+  font-size: small-font;
+  margin-top: 6px;
+}
+
+.seeMore {
+  font-size: standard-font;
+  font-weight: normal;
+}

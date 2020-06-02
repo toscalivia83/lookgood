@@ -1,0 +1,5 @@
+.page {
+    grid-template-columns: 265px auto;
+    display: grid;
+    height: 100%;
+}

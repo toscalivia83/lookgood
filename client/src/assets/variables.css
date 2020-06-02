@@ -1,0 +1,16 @@
+/* Colours */
+@value lg-white: #FBFBFF;
+@value lg-yellow: #FFCA43;
+@value lg-pink: #E7B0B4;
+@value lg-purple: #828CE7;
+@value lg-black: #373338;
+@value lg-light-purple-grey: #EBEAF3;
+@value lg-light-blue-grey: #F2F4FA;
+@value lg-light-red-grey: #EFEFEF;
+@value lg-light-brown: #CCA79F;
+
+/* Fonts */
+@value large-font: 28px;
+@value medium-font: 20px;
+@value standard-font: 16px;
+@value small-font: 12px;

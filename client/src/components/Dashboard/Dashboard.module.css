@@ -1,3 +1,13 @@
+@value lg-light-blue-grey from "../../assets/variables.css";
+
 .content {
-  background-color: red;
+  background-color: lg-light-blue-grey;
+  display: grid;
+  grid-template-rows: 60% auto;
+  padding: 32px;
+}
+
+.topLine {
+  display: grid;
+  grid-template-columns: 40% 60%;
 }
